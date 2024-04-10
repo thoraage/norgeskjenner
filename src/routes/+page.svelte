@@ -1,6 +1,9 @@
 <script>
     import Geometry from "./geometry.svelte";
     import Quiz from "./quiz.svelte";
+    let todaysMunicipalityId = 0;
+    const municipalityPromise = import(`$lib/${todaysMunicipalityId}.json`)
+    municipalityPromise.catch(e => console.error(e));
 </script>
 
 <style>
@@ -24,4 +27,6 @@
 </style>
 
 <Quiz />
-<Geometry />
+{#await municipalityPromise then municipality}
+    <Geometry {municipality}/>
+{/await}

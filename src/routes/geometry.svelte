@@ -1,9 +1,9 @@
 <script>
-    import municipality from '$lib/0.json';
     import counties from '$lib/f.json';
     import norway from '$lib/norway.json';
     import {GeoJSON2SVG} from 'geojson2svg';
 
+    export let municipality;
     const width = '100%', height = 900;
 
     function mapExtent() {
@@ -29,7 +29,7 @@
     const options = {viewportSize: {width: 900, height: height}, mapExtent: mapExtent()};
     const converter = new GeoJSON2SVG(options);
     const svgStrings = converter.convert(municipality.geometry) + converter.convert(norway);
-    let count = municipality.geometry.coordinates[0][0].length;
+    // let count = municipality.geometry.coordinates[0][0].length;
 </script>
 
 <div class="map">
