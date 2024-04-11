@@ -26,7 +26,7 @@
     }
 </style>
 
-<Quiz />
 {#await municipalityPromise then municipality}
+    <Quiz {municipality}/>
     <Geometry {municipality}/>
 {/await}
